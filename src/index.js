@@ -1,8 +1,13 @@
 module.exports = function reverse(n) {
-    let result = 0;
-    while (n) {
-        result = result * 10 + (n % 10);
-        n = Math.floor(n / 10);
+    if (n < 0) {
+        n = Math.abs(n);
     }
-    return result;
+    let stringNumb = String(n);
+    let numberArray = Array.from(stringNumb);
+    let result = "";
+
+    for (let i = numberArray.length - 1; i >= 0; i--) {
+        result += String(numberArray[i]);
+    }
+    return +result;
 };
